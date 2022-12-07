@@ -42,8 +42,7 @@ install.sh
 
 *output:*
 
-```bash
-helm upgrade --install --namespace karpenter --create-namespace   karpenter karpenter/karpenter   --set serviceAccoit # for the defaulting webhook to install before creating a ProvisionerRelease 
+$ helm upgrade --install --namespace karpenter --create-namespace   karpenter karpenter/karpenter   --set serviceAccoit # for the defaulting webhook to install before creating a ProvisionerRelease 
 
 "karpenter" does not exist. Installing it now. 
 NAME: karpenter
@@ -53,10 +52,7 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 
-
-
-kubectl get pod -n karpenter --no-headers | awk '{print $1}' | head -n 1 | xargs kubectl describe pod -n karpenter
-
+$ kubectl get pod -n karpenter --no-headers | awk '{print $1}' | head -n 1 | xargs kubectl describe pod -n karpenter
 Name:                 karpenter-65c8cd57c9-9xx2l
 Namespace:            karpenter
 Priority:             2000000000
@@ -175,4 +171,3 @@ Events:
   Normal  Pulled     8m57s  kubelet            Successfully pulled image "public.ecr.aws/karpenter/webhook:v0.16.3@sha256:96a2d9b06d6bc5127801f358f74b1cf2d289b423a2e9ba40c573c0b14b17dafa" in 2.564048742s
   Normal  Created    8m57s  kubelet            Created container webhook
   Normal  Started    8m57s  kubelet            Started container webhook
-```
