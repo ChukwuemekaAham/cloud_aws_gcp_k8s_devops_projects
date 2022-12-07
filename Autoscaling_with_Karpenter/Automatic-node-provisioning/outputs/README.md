@@ -515,10 +515,10 @@ if we run the command `kubectl describe node --selector=intent=apps`
 No resources found in default namespace. 
 
 `kubectl get deployment inflate`
-...
+`
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 inflate   0/0     0            0           104m
-...
+`
 
 
 The default Provisioner was configured with ttlSecondsAfterEmpty set to 30 seconds. Once the nodes don’t have any pods scheduled on them, Karpenter will terminate the empty nodes using cordon and drain best practices
