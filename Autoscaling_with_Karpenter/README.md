@@ -1,5 +1,6 @@
 # Migrating to Karpenter from Cluster Autoscaler
-This aim of this project is to demonstrate how to switch from the Kubernetes Cluster Autoscaler to Karpenter for automatic node provisioning. It is an addon to the following:
+
+The aim of this project is to demonstrate how to switch from the Kubernetes Cluster Autoscaler to Karpenter for automatic node provisioning. It is an addon to the following:
 - An existing EKS cluster
 - An existing VPC and subnets
 - An existing security groups
