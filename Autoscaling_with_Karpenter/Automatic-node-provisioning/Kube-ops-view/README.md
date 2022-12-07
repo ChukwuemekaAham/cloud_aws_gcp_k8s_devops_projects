@@ -18,11 +18,11 @@ The execution above installs kube-ops-view exposing it through a Service using t
 Monitoring and visualization shouldn’t be typically be exposed publicly unless the service is properly secured and provide methods for authentication and authorization. You can still deploy kube-ops-view using a Service of type ClusterIP by removing the --set service.type=LoadBalancer section and using kubectl proxy. Kube-ops-view does also support Oauth 2
 
 `helm list`
-
+```bash
 NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                APP VERSION
 kube-ops-view   default         1               2022-12-06 13:10:10.7174916 +0100 WAT   deployed        kube-ops-view-1.2.4  20.4.0
 
-
+```
 
 With this we can explore kube-ops-view output by checking the details about the newly service created.
 
