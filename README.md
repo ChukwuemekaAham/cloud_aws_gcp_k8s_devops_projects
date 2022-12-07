@@ -1,0 +1,1 @@
+This repository contains update to my AWS EKS, ECS, K8s, CICD and DevSecOps projects.
