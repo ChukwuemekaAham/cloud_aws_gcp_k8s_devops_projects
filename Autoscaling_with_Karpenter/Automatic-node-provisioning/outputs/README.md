@@ -16,8 +16,11 @@ You can check the state of the replicas by running the following command. Once K
 
 `kubectl get deployment inflate `
 
+```bash
+
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 inflate   1/1     1            1           32m
+```
 
 
 You can check which instance type was used running the following command:
@@ -26,8 +29,12 @@ You can check which instance type was used running the following command:
 
 This will show a single instance created with the label set to intent: apps. 
 
+```bash
+
 NAME                                            STATUS   ROLES    AGE     VERSION                LABELS
 ip-192-168-185-111.us-west-2.compute.internal   Ready    <none>   7m42s   v1.21.14-eks-fb459a0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=r5.xlarge,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=us-west-2,failure-domain.beta.kubernetes.io/zone=us-west-2d,intent=apps,k8s.io/cloud-provider-aws=1ca89af3decf1ea3b0004c0db2033941,karpenter.k8s.aws/instance-category=r,karpenter.k8s.aws/instance-cpu=4,karpenter.k8s.aws/instance-family=r5,karpenter.k8s.aws/instance-generation=5,karpenter.k8s.aws/instance-hypervisor=nitro,karpenter.k8s.aws/instance-memory=32768,karpenter.k8s.aws/instance-pods=58,karpenter.k8s.aws/instance-size=xlarge,karpenter.sh/capacity-type=spot,karpenter.sh/initialized=true,karpenter.sh/provisioner-name=default,kubernetes.io/arch=amd64,kubernetes.io/hostname=ip-192-168-185-111.us-west-2.compute.internal,kubernetes.io/os=linux,node.kubernetes.io/instance-type=r5.xlarge,topology.kubernetes.io/region=us-west-2,topology.kubernetes.io/zone=us-west-2d
+
+```
 
 To get the type of instance in this case, we can describe the node and look at the label beta.kubernetes.io/instance-type
 
@@ -79,6 +86,7 @@ Instance properties; display all the node attributes including labels:
 `kubectl describe node --selector=intent=apps`
 *output:*
 
+```bash
 Name:               ip-192-168-185-111.us-west-2.compute.internal
 Roles:              <none>
 Labels:             beta.kubernetes.io/arch=amd64
@@ -259,6 +267,8 @@ from types t3a.2xlarge, t3.2xlarge, inf1.2xlarge, m3.2xlarge, c5d.2xlarge and 30
 Finally to check out the configuration of the intent=apps node execute again:
 
 `kubectl describe node --selector=intent=apps`
+
+```bash
 
 Name:               ip-192-168-121-67.us-west-2.compute.internal
 Roles:              <none>
@@ -478,6 +488,8 @@ Events:
   Normal   Starting                 59m                kube-proxy       Starting kube-proxy.
   Normal   NodeReady                59m                kubelet          Node ip-192-168-185-111.us-west-2.compute.internal status is now: NodeReady
 
+  ```
+
 This time around you’ll see the description for both instances created.
 
 
@@ -487,7 +499,7 @@ To scale the number of replicas to 0 again:
 
 deployment.apps/inflate scaled
 
-
+```bash
 2022-12-06T13:44:41.758Z        INFO    controller.node Added TTL to empty node {"commit": "5d4ae35-dirty", "node": "ip-192-168-121-67.us-west-2.compute.internal"}
 2022-12-06T13:44:42.526Z        INFO    controller.node Added TTL to empty node {"commit": "5d4ae35-dirty", "node": "ip-192-168-185-111.us-west-2.compute.internal"}
 2022-12-06T13:45:11.001Z        INFO    controller.node Triggering termination after 30s for empty node {"commit": "5d4ae35-dirty", "node": "ip-192-168-121-67.us-west-2.compute.internal"}
@@ -496,14 +508,17 @@ deployment.apps/inflate scaled
 2022-12-06T13:45:12.000Z        INFO    controller.node Triggering termination after 30s for empty node {"commit": "5d4ae35-dirty", "node": "ip-192-168-185-111.us-west-2.compute.internal"}
 2022-12-06T13:45:12.036Z        INFO    controller.termination  Cordoned node   {"commit": "5d4ae35-dirty", "node": "ip-192-168-185-111.us-west-2.compute.internal"}
 2022-12-06T13:45:12.221Z        INFO    controller.termination  Deleted node    {"commit": "5d4ae35-dirty", "node": "ip-192-168-185-111.us-west-2.compute.internal"}
+```
 
 if we run the command `kubectl describe node --selector=intent=apps` 
 *see output:*
 No resources found in default namespace. 
 
 `kubectl get deployment inflate`
+...
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 inflate   0/0     0            0           104m
+...
 
 
 The default Provisioner was configured with ttlSecondsAfterEmpty set to 30 seconds. Once the nodes don’t have any pods scheduled on them, Karpenter will terminate the empty nodes using cordon and drain best practices
