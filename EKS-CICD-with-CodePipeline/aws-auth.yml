@@ -1,0 +1,25 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::559379197057:role/eksctl-eks-eksctl-demo-nodegroup-NodeInstanceRole-1NTX2860QCBCY
+      username: system:node:{{EC2PrivateDNSName}}
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::559379197057:role/EksCodeBuildKubectlRole
+      username: admin
+  mapUsers: |
+    []
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-11-28T16:14:33Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "3159"
+  uid: 7520a5b1-49f0-4b67-826c-23ac6c014c1c

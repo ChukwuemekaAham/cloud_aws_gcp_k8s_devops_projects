@@ -1,0 +1,401 @@
+timestamp,message
+1669655452131,"Preparing to unpack .../21-python3-wheel_0.30.0-0.2_all.deb ...
+"
+1669655452131,"Unpacking python3-wheel (0.30.0-0.2) ...
+"
+1669655452131,"Selecting previously unselected package python3-xdg.
+"
+1669655452131,"Preparing to unpack .../22-python3-xdg_0.25-4ubuntu1.1_all.deb ...
+"
+1669655452131,"Unpacking python3-xdg (0.25-4ubuntu1.1) ...
+"
+1669655452131,"Setting up python-pip-whl (9.0.1-2.3~ubuntu1.18.04.5) ...
+"
+1669655452131,"Setting up python3-cffi-backend (1.11.5-1) ...
+"
+1669655452131,"Setting up python3-crypto (2.6.1-8ubuntu2) ...
+"
+1669655454153,"Setting up python3-idna (2.6-1) ...
+"
+1669655454153,"Setting up python3-xdg (0.25-4ubuntu1.1) ...
+"
+1669655454153,"Setting up python3-six (1.11.0-2) ...
+"
+1669655454153,"Setting up python3-wheel (0.30.0-0.2) ...
+"
+1669655454153,"Setting up python3-pkg-resources (39.0.1-2) ...
+"
+1669655454153,"Setting up libpython3.6-dev:amd64 (3.6.9-1~18.04ubuntu1.8) ...
+"
+1669655454153,"Setting up python3-asn1crypto (0.24.0-1) ...
+"
+1669655454153,"Setting up libapparmor1:amd64 (2.12-4ubuntu5.1) ...
+"
+1669655454153,"Setting up python3-pip (9.0.1-2.3~ubuntu1.18.04.5) ...
+"
+1669655454153,"Setting up python3-setuptools (39.0.1-2) ...
+"
+1669655456177,"Setting up python3.6-dev (3.6.9-1~18.04ubuntu1.8) ...
+"
+1669655456177,"Setting up dh-python (3.20180325ubuntu2) ...
+"
+1669655456177,"Setting up libdbus-1-3:amd64 (1.12.2-1ubuntu1.4) ...
+"
+1669655456177,"Setting up libpython3-dev:amd64 (3.6.7-1~18.04) ...
+"
+1669655456177,"Setting up python3-cryptography (2.1.4-1ubuntu1.4) ...
+"
+1669655456177,"Setting up python3-keyrings.alt (3.0-1) ...
+"
+1669655456177,"Setting up python3-dev (3.6.7-1~18.04) ...
+"
+1669655456177,"Setting up dbus (1.12.2-1ubuntu1.4) ...
+"
+1669655456177,"Setting up python3-secretstorage (2.3.1-2) ...
+"
+1669655456177,"Setting up python3-keyring (10.6.0-1) ...
+"
+1669655456177,"Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+"
+1669655474281,"Requirement already satisfied: awscli in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (1.25.89)
+"
+1669655474281,"Collecting awscli
+"
+1669655474281,"  Downloading awscli-1.27.17-py3-none-any.whl (3.9 MB)
+"
+1669655474281,"Requirement already satisfied: colorama<0.4.5,>=0.2.5 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from awscli) (0.4.4)
+"
+1669655474281,"Requirement already satisfied: PyYAML<5.5,>=3.10 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from awscli) (5.4.1)
+"
+1669655474281,"Requirement already satisfied: s3transfer<0.7.0,>=0.6.0 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from awscli) (0.6.0)
+"
+1669655474281,"Requirement already satisfied: rsa<4.8,>=3.1.2 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from awscli) (4.7.2)
+"
+1669655474281,"Requirement already satisfied: docutils<0.17,>=0.10 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from awscli) (0.16)
+"
+1669655476321,"Collecting botocore==1.29.17
+"
+1669655476321,"  Downloading botocore-1.29.17-py3-none-any.whl (10.0 MB)
+"
+1669655476321,"Requirement already satisfied: urllib3<1.27,>=1.25.4 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from botocore==1.29.17->awscli) (1.26.12)
+"
+1669655476321,"Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from botocore==1.29.17->awscli) (2.8.2)
+"
+1669655476321,"Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from botocore==1.29.17->awscli) (0.10.0)
+"
+1669655476321,"Requirement already satisfied: six>=1.5 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from python-dateutil<3.0.0,>=2.1->botocore==1.29.17->awscli) (1.16.0)
+"
+1669655476321,"Requirement already satisfied: pyasn1>=0.1.3 in /root/.pyenv/versions/3.8.13/lib/python3.8/site-packages (from rsa<4.8,>=3.1.2->awscli) (0.4.8)
+"
+1669655478340,"Installing collected packages: botocore, awscli
+"
+1669655478340,"  Attempting uninstall: botocore
+"
+1669655478340,"    Found existing installation: botocore 1.27.88
+"
+1669655482359,"    Uninstalling botocore-1.27.88:
+"
+1669655492386,"      Successfully uninstalled botocore-1.27.88
+"
+1669655492386,"  Attempting uninstall: awscli
+"
+1669655492386,"    Found existing installation: awscli 1.25.89
+"
+1669655496458,"    Uninstalling awscli-1.25.89:
+"
+1669655500484,"      Successfully uninstalled awscli-1.25.89
+"
+1669655500484,"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+"
+1669655500484,"boto3 1.24.88 requires botocore<1.28.0,>=1.27.88, but you have botocore 1.29.17 which is incompatible.
+"
+1669655500484,"Successfully installed awscli-1.27.17 botocore-1.29.17
+"
+1669655500484,"WARNING: Running pip as root will break packages and permissions. You should install packages reliably by using venv: https://pip.pypa.io/warnings/venv
+"
+1669655500484,"WARNING: You are using pip version 21.1.2; however, version 22.3.1 is available.
+"
+1669655500484,"You should consider upgrading via the '/root/.pyenv/versions/3.8.13/bin/python3.8 -m pip install --upgrade pip' command.
+"
+1669655502511,"
+"
+1669655502511,"[Container] 2022/11/28 17:11:40 Phase complete: INSTALL State: SUCCEEDED
+"
+1669655502511,"[Container] 2022/11/28 17:11:40 Phase context status code:  Message: 
+"
+1669655502511,"[Container] 2022/11/28 17:11:41 Entering phase PRE_BUILD
+"
+1669655502511,"[Container] 2022/11/28 17:11:41 Running command TAG=""$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)""
+"
+1669655502511,"
+"
+1669655502511,"[Container] 2022/11/28 17:11:41 Running command sed -i 's@CONTAINER_IMAGE@'""$REPOSITORY_URI:$TAG""'@' hello-k8s.yml
+"
+1669655502511,"
+"
+1669655502511,"[Container] 2022/11/28 17:11:41 Running command $(aws ecr get-login --no-include-email)
+"
+1669655502511,"WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+"
+1669655502511,"WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+"
+1669655502511,"Configure a credential helper to remove this warning. See
+"
+1669655502511,"https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+"
+1669655502511,"
+"
+1669655502511,"Login Succeeded
+"
+1669655502511,"
+"
+1669655502511,"[Container] 2022/11/28 17:11:42 Running command export KUBECONFIG=$HOME/.kube/config
+"
+1669655502511,"
+"
+1669655502511,"[Container] 2022/11/28 17:11:42 Phase complete: PRE_BUILD State: SUCCEEDED
+"
+1669655502511,"[Container] 2022/11/28 17:11:42 Phase context status code:  Message: 
+"
+1669655502511,"[Container] 2022/11/28 17:11:42 Entering phase BUILD
+"
+1669655502511,"[Container] 2022/11/28 17:11:42 Running command docker build --tag $REPOSITORY_URI:$TAG .
+"
+1669655504537,"Sending build context to Docker daemon   69.4MB
+"
+1669655504537,"Step 1/12 : FROM golang:1.11.1 as builder
+"
+1669655504537,"1.11.1: Pulling from library/golang
+"
+1669655504537,"bc9ab73e5b14: Pulling fs layer
+"
+1669655504537,"193a6306c92a: Pulling fs layer
+"
+1669655504537,"e5c3f8c317dc: Pulling fs layer
+"
+1669655504537,"a587a86c9dcb: Pulling fs layer
+"
+1669655504537,"1bc310ac474b: Pulling fs layer
+"
+1669655504537,"997731689cfb: Pulling fs layer
+"
+1669655504537,"202760eb4a00: Pulling fs layer
+"
+1669655504537,"1bc310ac474b: Waiting
+"
+1669655504537,"997731689cfb: Waiting
+"
+1669655504537,"202760eb4a00: Waiting
+"
+1669655504537,"a587a86c9dcb: Waiting
+"
+1669655504537,"e5c3f8c317dc: Verifying Checksum
+"
+1669655504537,"e5c3f8c317dc: Download complete
+"
+1669655504537,"193a6306c92a: Verifying Checksum
+"
+1669655504537,"193a6306c92a: Download complete
+"
+1669655504537,"bc9ab73e5b14: Verifying Checksum
+"
+1669655504537,"bc9ab73e5b14: Download complete
+"
+1669655504537,"a587a86c9dcb: Verifying Checksum
+"
+1669655504537,"a587a86c9dcb: Download complete
+"
+1669655504537,"202760eb4a00: Verifying Checksum
+"
+1669655504537,"202760eb4a00: Download complete
+"
+1669655506557,"1bc310ac474b: Verifying Checksum
+"
+1669655506557,"1bc310ac474b: Download complete
+"
+1669655506557,"bc9ab73e5b14: Pull complete
+"
+1669655506557,"997731689cfb: Verifying Checksum
+"
+1669655506557,"997731689cfb: Download complete
+"
+1669655508581,"193a6306c92a: Pull complete
+"
+1669655508581,"e5c3f8c317dc: Pull complete
+"
+1669655510602,"a587a86c9dcb: Pull complete
+"
+1669655512627,"1bc310ac474b: Pull complete
+"
+1669655518655,"997731689cfb: Pull complete
+"
+1669655518655,"202760eb4a00: Pull complete
+"
+1669655518655,"Digest: sha256:63ec0e29aeba39c0fe2fc6551c9ca7fa16ddf95394d77ccee75bc7062526a96c
+"
+1669655518655,"Status: Downloaded newer image for golang:1.11.1
+"
+1669655518655," ---> 45e48f60e268
+"
+1669655518655,"Step 2/12 : RUN mkdir -p /go/src/github.com/eks-workshop-sample-api-service-go
+"
+1669655518655," ---> Running in 88fd0edd45a4
+"
+1669655520691,"Removing intermediate container 88fd0edd45a4
+"
+1669655520691," ---> 7daeeefdf1ff
+"
+1669655520691,"Step 3/12 : WORKDIR /go/src/github.com/eks-workshop-sample-api-service-go
+"
+1669655520691," ---> Running in f0577c515809
+"
+1669655520691,"Removing intermediate container f0577c515809
+"
+1669655520691," ---> 38894f22a38a
+"
+1669655520691,"Step 4/12 : RUN useradd -u 10001 app
+"
+1669655520691," ---> Running in e1c5f30f405e
+"
+1669655520691,"Removing intermediate container e1c5f30f405e
+"
+1669655520691," ---> a02dd302fa95
+"
+1669655520691,"Step 5/12 : COPY . .
+"
+1669655520691," ---> 64ffaabf2997
+"
+1669655520691,"Step 6/12 : RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
+"
+1669655520691," ---> Running in 665cb3ebd2de
+"
+1669655532725,"Removing intermediate container 665cb3ebd2de
+"
+1669655532725," ---> 1bd4404a55d0
+"
+1669655532725,"Step 7/12 : FROM scratch
+"
+1669655532725," ---> 
+"
+1669655532725,"Step 8/12 : COPY --from=builder /go/src/github.com/eks-workshop-sample-api-service-go/main /main
+"
+1669655532725," ---> c89d6ae5d502
+"
+1669655532725,"Step 9/12 : COPY --from=builder /etc/passwd /etc/passwd
+"
+1669655532725," ---> 92e412a42ef7
+"
+1669655532725,"Step 10/12 : USER app
+"
+1669655532725," ---> Running in 5e7f499346c5
+"
+1669655532725,"Removing intermediate container 5e7f499346c5
+"
+1669655532725," ---> 90231a2e249d
+"
+1669655532725,"Step 11/12 : EXPOSE 8080
+"
+1669655532725," ---> Running in 53064c59e069
+"
+1669655532725,"Removing intermediate container 53064c59e069
+"
+1669655532725," ---> 3efc4b43137b
+"
+1669655532725,"Step 12/12 : CMD [""/main""]
+"
+1669655532725," ---> Running in 58115ba90edc
+"
+1669655532725,"Removing intermediate container 58115ba90edc
+"
+1669655532725," ---> 9a6f88b34435
+"
+1669655532725,"Successfully built 9a6f88b34435
+"
+1669655532725,"Successfully tagged 559379197057.dkr.ecr.us-east-1.amazonaws.com/eks-codepipeline-ecrdockerrepository-gx0cpagckbb9:eks-workshop-sample-api-service-go.master..2022-11-28.17.11.41.68c1406b
+"
+1669655532725,"
+"
+1669655532725,"[Container] 2022/11/28 17:12:12 Phase complete: BUILD State: SUCCEEDED
+"
+1669655532725,"[Container] 2022/11/28 17:12:12 Phase context status code:  Message: 
+"
+1669655532725,"[Container] 2022/11/28 17:12:12 Entering phase POST_BUILD
+"
+1669655532725,"[Container] 2022/11/28 17:12:12 Running command docker push $REPOSITORY_URI:$TAG
+"
+1669655532725,"The push refers to repository [559379197057.dkr.ecr.us-east-1.amazonaws.com/eks-codepipeline-ecrdockerrepository-gx0cpagckbb9]
+"
+1669655532725,"b14174d1ade1: Preparing
+"
+1669655532725,"6c85de096db0: Preparing
+"
+1669655534779,"b14174d1ade1: Pushed
+"
+1669655534779,"6c85de096db0: Pushed
+"
+1669655534779,"eks-workshop-sample-api-service-go.master..2022-11-28.17.11.41.68c1406b: digest: sha256:cb25110a9cff333bbe4623112a28ea7571d495ad9a2ca3aafb041648ea066f7d size: 735
+"
+1669655534779,"
+"
+1669655534779,"[Container] 2022/11/28 17:12:14 Running command CREDENTIALS=$(aws sts assume-role --role-arn $EKS_KUBECTL_ROLE_ARN --role-session-name codebuild-kubectl --duration-seconds 900)
+"
+1669655534779,"
+"
+1669655534779,"[Container] 2022/11/28 17:12:14 Running command export AWS_ACCESS_KEY_ID=""$(echo ${CREDENTIALS} | jq -r '.Credentials.AccessKeyId')""
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:14 Running command export AWS_SECRET_ACCESS_KEY=""$(echo ${CREDENTIALS} | jq -r '.Credentials.SecretAccessKey')""
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:14 Running command export AWS_SESSION_TOKEN=""$(echo ${CREDENTIALS} | jq -r '.Credentials.SessionToken')""
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:14 Running command export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:14 Running command aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
+"
+1669655538710,"Added new context arn:aws:eks:us-east-1:559379197057:cluster/eks-eksctl-demo to /root/.kube/config
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:15 Running command kubectl apply -f hello-k8s.yml
+"
+1669655538710,"service/hello-k8s unchanged
+"
+1669655538710,"deployment.apps/hello-k8s configured
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Running command printf '[{""name"":""hello-k8s"",""imageUri"":""%s""}]' $REPOSITORY_URI:$TAG > build.json
+"
+1669655538710,"
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Phase complete: POST_BUILD State: SUCCEEDED
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Phase context status code:  Message: 
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 exiting execCommands
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Expanding base directory path: .
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Assembling file list
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Expanding .
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Expanding file paths for base directory .
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Assembling file list
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Expanding build.json
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Found 1 file(s)
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Phase complete: UPLOAD_ARTIFACTS State: SUCCEEDED
+"
+1669655538710,"[Container] 2022/11/28 17:12:16 Phase context status code:  Message: 
+"
