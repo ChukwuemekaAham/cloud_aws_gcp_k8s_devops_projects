@@ -501,7 +501,7 @@ if we run the command `kubectl describe node --selector=intent=apps`
 *see output:*
 No resources found in default namespace. 
 
-$ kubectl get deployment inflate
+`kubectl get deployment inflate`
 NAME      READY   UP-TO-DATE   AVAILABLE   AGE
 inflate   0/0     0            0           104m
 
