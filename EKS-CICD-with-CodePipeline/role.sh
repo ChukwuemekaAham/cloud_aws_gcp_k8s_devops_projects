@@ -22,5 +22,4 @@ aws iam put-role-policy --role-name EksCodeBuildKubectlRole --policy-name eks-de
 
 
 
-
 #eksctl create iamidentitymapping --cluster eks-eksctl-demo  --region=us-east-1 --arn arn:aws:iam::559379197057:role/EksKubectlRole --group system:masters --username admin
