@@ -1,0 +1,105 @@
+## PROVISION AN AMAZON OPENSEARCH CLUSTER
+
+This creates an one instance Amazon OpenSearch cluster named eks-logging. This cluster will be created in the same region as the EKS Kubernetes cluster.
+
+The Amazon OpenSearch cluster will have Fine-Grained Access Control enabled, which offers two forms of authentication and authorization:
+
+*A built-in user database*; this makes it easy to configure usernames and passwords inside of Amazon OpenSearch cluster.
+
+*AWS Identity and Access Management (IAM) integration*; this enables mapping of IAM principals to permissions.
+
+A public access domain with fine-grained access control enabled, an access policy that doesn’t use IAM principals, and a master user in the internal user database will all be created
+
+RUN:
+
+```shell
+./provision.sh
+```
+<!-- 
+*output:*
+{
+    "DomainStatus": {
+        "DomainId": "263022081217/eks-logging",
+        "DomainName": "eks-logging",
+        "ARN": "arn:aws:es:us-west-2:263022081217:domain/eks-logging",
+        "Created": true,
+        "Deleted": false,
+        "Processing": true,
+        "UpgradeProcessing": false,
+        "EngineVersion": "OpenSearch_1.0",
+        "ClusterConfig": {
+            "InstanceType": "r5.large.search",
+            "InstanceCount": 1,
+            "DedicatedMasterEnabled": false,
+            "ZoneAwarenessEnabled": false,
+            "WarmEnabled": false,
+            "ColdStorageOptions": {
+                "Enabled": false
+            }
+        },
+        "EBSOptions": {
+            "EBSEnabled": true,
+            "VolumeType": "gp2",
+            "VolumeSize": 100
+        },
+        "AccessPolicies": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"es:ESHttp*\",\"Resource\":\"arn:aws:es:us-west-2:263022081217:domain/eks-logging/*\"}]}",
+        "SnapshotOptions": {},
+        "CognitoOptions": {
+            "Enabled": false
+        },
+        "EncryptionAtRestOptions": {
+            "Enabled": true,
+            "KmsKeyId": "arn:aws:kms:us-west-2:263022081217:key/fcd0751b-8e13-4685-9ec1-7abf331cbc66"   
+        },
+        "NodeToNodeEncryptionOptions": {
+            "Enabled": true
+        },
+        "AdvancedOptions": {
+            "override_main_response_version": "false",
+            "rest.action.multi.allow_explicit_index": "true"
+        },
+        "ServiceSoftwareOptions": {
+            "CurrentVersion": "",
+            "NewVersion": "",
+            "UpdateAvailable": false,
+            "Cancellable": false,
+            "UpdateStatus": "COMPLETED",
+            "Description": "There is no software update available for this domain.",
+            "AutomatedUpdateDate": "1970-01-01T01:00:00+01:00",
+            "OptionalDeployment": true
+        },
+        "DomainEndpointOptions": {
+            "EnforceHTTPS": true,
+            "TLSSecurityPolicy": "Policy-Min-TLS-1-0-2019-07",
+            "CustomEndpointEnabled": false
+        },
+        "AdvancedSecurityOptions": {
+            "Enabled": true,
+            "InternalUserDatabaseEnabled": true,
+            "AnonymousAuthEnabled": false
+        },
+        "AutoTuneOptions": {
+            "State": "ENABLE_IN_PROGRESS"
+        },
+        "ChangeProgressDetails": {
+            "ChangeId": "91c07d84-7684-4e87-99ab-26be25f9c053"
+        }
+    }
+}
+ -->
+
+It takes a little while for the cluster to be in an active state. 
+
+Checking status via AWS CLI:
+
+```bash
+if [ $(aws opensearch describe-domain --domain-name ${ES_DOMAIN_NAME} --query 'DomainStatus.Processing') == "false" ]
+  then
+    tput setaf 2; echo "The Amazon OpenSearch cluster is ready"
+  else
+    tput setaf 1;echo "The Amazon OpenSearch cluster is NOT ready"
+fi
+```
+<!-- *output*
+
+> The Amazon OpenSearch cluster is ready -->

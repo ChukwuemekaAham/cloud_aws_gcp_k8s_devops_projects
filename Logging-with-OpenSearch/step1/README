@@ -1,0 +1,63 @@
+## CONFIGURING IRSA FOR FLUENT BIT
+
+With IAM roles for service accounts on Amazon EKS clusters, an IAM role can be associate with a Kubernetes service account. The service account will provide AWS permissions to the containers in any pod that uses that service account. 
+
+*RUN:*
+```shell
+./irsa.sh
+```
+
+
+*output IAM Open ID Connect provider:*
+```bash
+
+2022-12-04 16:25:16 [ℹ]  will create IAM Open ID Connect provider for cluster "eks-eksctl-demo" in "us-west-2"
+2022-12-04 16:25:18 [✔]  created IAM Open ID Connect provider for cluster "eks-eksctl-demo" in "us-west-2"
+```
+
+
+*output IAM policy:*
+```bash
+{
+    "Policy": {
+        "PolicyName": "fluent-bit-policy",
+        "PolicyId": "ANPAT2PKWOTA7E3KPWOC4",
+        "Arn": "arn:aws:iam::263022081217:policy/fluent-bit-policy",
+        "Path": "/",
+        "DefaultVersionId": "v1",
+        "AttachmentCount": 0,
+        "PermissionsBoundaryUsageCount": 0,
+        "IsAttachable": true,
+        "CreateDate": "2022-12-04T15:30:04+00:00",
+        "UpdateDate": "2022-12-04T15:30:04+00:00"
+    }
+}
+```
+
+*Output IAM role for the fluent-bit Service Account in the logging namespace:*
+```bash
+2022-12-04 16:31:42 [ℹ]  1 iamserviceaccount (logging/fluent-bit) was included (basedd on the include/excd on the include/exclude rules)
+2022-12-04 16:31:42 [!]  metadata of serviceaccounts that exist in Kubernetes will be updated, as --override-existing-serviceaccounts was set
+2022-12-04 16:31:42 [ℹ]  1 task: {
+    2 sequential sub-tasks: {
+        create IAM role for serviceaccount "logging/fluent-bit",
+        create serviceaccount "logging/fluent-bit",
+    } }2022-12-04 16:31:42 [ℹ]  building iamserviceaccount stack "eksctl-eks-eksctl-demo-addon-iamserviceaccount-logging-fluent-bit"
+2022-12-04 16:31:43 [ℹ]  deploying stack "eksctl-eks-eksctl-demo-addon-iamserviceaccount-logging-fluent-bit"
+2022-12-04 16:31:43 [ℹ]  waiting for CloudFormation stack "eksctl-eks-eksctl-demo-addon-iamserviceaccount-logging-fluent-bit"
+2022-12-04 16:32:14 [ℹ]  waiting for CloudFormation stack "eksctl-eks-eksctl-demo-addon-iamserviceaccount-logging-fluent-bit"
+2022-12-04 16:32:16 [ℹ]  created namespace "logging"
+2022-12-04 16:32:16 [ℹ]  created serviceaccount "logging/fluent-bit"
+```
+
+*Output describe sa fluent-bit:*
+```bash
+Name:                fluent-bit
+Namespace:           logging
+Labels:              app.kubernetes.io/managed-by=eksctl
+Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::263022081217:role/eksctl-eks-eksctl-demo-addon-iamserviceaccou-Role1-1SEHA63L5YZVD
+Image pull secrets:  <none>
+Mountable secrets:   fluent-bit-token-7cdvp
+Tokens:              fluent-bit-token-7cdvp
+Events:              <none>
+```
