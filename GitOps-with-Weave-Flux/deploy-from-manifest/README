@@ -1,0 +1,75 @@
+## DEPLOY FROM MANIFESTS
+
+Now we are ready to use Weave Flux to deploy the hello world application into our Amazon EKS cluster. To do this we will clone our GitHub config repository (k8s-config) and then commit Kubernetes manifests to deploy.
+
+```bash
+cd ..
+git clone https://github.com/${YOURUSER}/k8s-config.git     
+cd k8s-config
+mkdir charts namespaces releases workloads
+```
+
+Create a namespace Kubernetes manifest.
+
+Create a deployment Kubernetes manifest.
+
+Update the image below to point to your ECR repository and image tag (Do NOT use latest). You can find your Image URI from the [Amazon ECR Console](https://console.aws.amazon.com/ecr/repositories/eks-example/). Replace (YOURACCOUNT and YOURTAG)
+
+
+**Above the deployment manifest there are 2 Kubernetes annotations for Flux.**
+
+*flux.weave.works/automated* tells Flux whether the container image should be automatically updated.
+
+*flux.weave.works/ignore* is commented out, but could be used to tell Flux to temporarily ignore the deployment.
+
+The service manifest enable a load balancer to be created.
+
+Commit the changes and push to your repository.
+
+```bash
+git add . 
+git commit -am "eks-example-deployment"
+git push 
+```
+
+Weave flux will pull config from the k8s-config repository every 5 minutes. 
+
+`kubectl get pods -n flux`
+
+`kubectl logs flux-64465f5c54-h9d4r -n flux`
+
+Now get the URL for the load balancer (LoadBalancer Ingress) and connect via your browser (this may take a couple minutes for DNS).
+
+`kubectl describe service eks-example -n eks-example`
+
+Make a change to the eks-example source code and push a new change.
+```bash
+cd ../eks-example
+vi src/index.html
+
+git commit -am "commit message"
+git push
+```
+
+Now you can watch in the [CodePipeline console](https://console.aws.amazon.com/codesuite/codepipeline/pipelines) for the new image build to complete. This will take a couple minutes. Once complete, you will see a new image land in your [Amazon ECR repository](https://console.aws.amazon.com/ecr/repositories/eks-example/). 
+
+Verify the web page has updated by refreshing the page in browser.
+
+We can also use git to revert the config change in k8s-config:
+
+```bash
+cd ../k8s-config
+git pull 
+
+git log --oneline
+
+git revert HEAD
+
+   # Save the commit message
+
+git log --oneline 
+
+git push
+```
+
+You should now be able to watch logs for the Flux pod and it will pull the config change and roll out the previous image. Check your URL in the browser to ensure it is reverted.

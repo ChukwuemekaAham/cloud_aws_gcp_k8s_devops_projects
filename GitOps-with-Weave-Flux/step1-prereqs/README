@@ -1,0 +1,22 @@
+# PREREQS
+
+see [installing helm](https://www.eksworkshop.com/beginner/060_helm/helm_intro/install/index.html) for instructions.
+
+### Install Helm
+
+```bash
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
+
+chmod +x get_helm.sh
+
+./get_helm.sh
+```
+
+AWS CodePipeline and AWS CodeBuild both need [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) service roles to create a Docker image build pipeline.
+
+create an IAM role and add an inline policy that we will use in the CodeBuild stage to interact with the EKS cluster via kubectl.
+
+*Create the bucket and roles:*
+```shell
+./prereqs2.sh
+```

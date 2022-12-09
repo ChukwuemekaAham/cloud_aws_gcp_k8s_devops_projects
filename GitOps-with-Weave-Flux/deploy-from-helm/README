@@ -1,0 +1,49 @@
+## DEPLOY FROM HELM
+
+This same approach can be used to deploy Helm charts. These charts can exist within the configuration Git repository (k8s-config), or hosted from an external chart repository. An external chart was used to keep things simple.
+
+In the k8s-config directory, create a namespace manifest.
+
+The git pull command ensures we have the latest configuration in case Flux modified anything.
+```bash
+cd ../k8s-config
+
+git pull
+
+create namespaces/nginx.yaml
+
+Add a Helm release manifest. This is a custom resource definition provided by Weave Flux.
+
+create releases/nginx.yaml
+```
+
+**Few additional annotations above.**
+
+*flux.weave.works/locked* tells Flux to lock the deployment so a new image version will not be deployed.
+
+*flux.weave.works/tag.nginx* filters the images available by semantic versioning.
+
+Commit the changes and wait up to 5 minutes for Flux to pull in the configuration.
+```bash
+git add . 
+git commit -am "Adding nginx helm release"
+git push
+```
+Verify the deployment as follows.
+
+`kubectl get pods -n flux`
+`kubectl logs flux-64465f5c54-h9d4r -n flux`
+
+`helm list`
+`kubectl get all -n nginx`
+
+If this doesn’t deploy, check to ensure helm was initialized. Also, look at the Flux Helm operator to see if there are any errors.
+
+`kubectl get pods -n flux`
+`kubectl logs flux-helm-operator-df5746688-84kw8 -n flux`
+
+Verify the Nginx service as follows.
+
+`kubectl get service -n nginx `
+
+we have seen how Weave Flux can enable a GitOps approach to deployment.

@@ -1,0 +1,34 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: mywebserver
+  namespace: nginx
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.nginx: semver:~1.16 #filters the images available by semantic versioning.
+    flux.weave.works/locked: 'true' #tells Flux to lock the deployment so a new image version will not be deployed.
+    flux.weave.works/locked_msg: '"Halt updates for now"'
+    flux.weave.works/locked_user: User Name <user@example.com>
+spec:
+  releaseName: mywebserver
+  chart:
+    repository: https://charts.bitnami.com/bitnami/
+    name: nginx
+    version: 11.1.5
+  values:
+    usePassword: true
+    image:
+      registry: public.ecr.aws
+      repository: bitnami/nginx
+      tag: 1.21.6
+    service:
+      type: LoadBalancer
+      port: 80
+      nodePorts:
+        http: ""
+      externalTrafficPolicy: Cluster
+    ingress:
+      enabled: false
+    metrics:
+      enabled: false

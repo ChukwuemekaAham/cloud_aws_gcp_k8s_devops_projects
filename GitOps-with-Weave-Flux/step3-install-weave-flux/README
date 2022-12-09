@@ -1,0 +1,38 @@
+### INSTALL WEAVE FLUX
+
+Helm was used to install Weave Flux into our cluster and enable it to interact with our Kubernetes configuration GitHub repo.
+
+*setup:*
+```shell
+./weaveflux.sh
+```
+
+Watch the install and confirm everything starts. There should be 3 pods.
+
+`kubectl get pods -n flux`
+
+Get the Git deploy key by either (a) running
+`kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2`
+
+or by (b) installing fluxctl through:
+
+Install fluxctl in order to get the SSH key to allow GitHub write access. This allows Flux to keep the configuration in GitHub in sync with the configuration deployed in the cluster.
+
+```bash
+wget -O /usr/bin/fluxctl $(curl https://api.github.com/repos/fluxcd/flux/releases/latest | jq -r ".assets[] | select(.name | test(\"linux_amd64\")) | .browser_download_url")`
+
+`chmod 755 /usr/bin/fluxctl
+
+fluxctl version
+fluxctl identity --k8s-fwd-ns flux
+```
+
+### Copy and add the provided key as a deploy key in the GitHub repository.
+
+Select the k8s-config GitHub repo. Go to Settings and click Deploy Keys. 
+Click on Add Deploy Key
+Name: Flux Deploy Key
+Paste the key output from fluxctl
+Click Allow Write Access. This allows Flux to keep the repo in sync with the real state of the cluster
+Click Add Key
+Now Flux is configured and should be ready to pull configuration.

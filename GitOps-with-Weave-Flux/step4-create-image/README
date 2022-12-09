@@ -1,0 +1,51 @@
+### CREATE IMAGE WITH CODEPIPELINE
+
+create the AWS CodePipeline using AWS CloudFormation. This pipeline will be used to build a Docker image from the GitHub source repo (eks-example) but this does not deploy the image. Weave Flux will.
+
+Each EKS deployment/service should have its own CodePipeline and be located in an isolated source repository.
+
+Template URL
+
+https://s3.us-east-1.amazonaws.com/cf-templates-wn2ugxac5xlg-us-east-1/2022-12-02T175332.634Z589-weave_flux_pipeline.cfn.yml
+
+Stack description
+CFN Template to deploy CodePipeline to build Docker Image and push to ECR
+
+arn:aws:iam::559379197057:role/eks-weaveflux-CodeBuildServiceRole
+arn:aws:iam::559379197057:role/eks-weaveflux-CodePipelineServiceRole
+
+
+After the console is open, enter your GitHub username, personal access token (created in previous step) and then click the “Create stack” button located at the bottom of the page.
+
+
+<br>
+
+![img](cloudformation_stack.png)
+
+
+Wait for the status to change from “CREATE_IN_PROGRESS” to CREATE_COMPLETE before moving on to the next step.
+
+<br>
+
+![img](cloudformation_stack_creating.png)
+
+
+Open CodePipeline in the Management Console https://console.aws.amazon.com/codesuite/codepipeline/pipelines. You will see a CodePipeline that starts with image-codepipeline. Click this link to view the details.
+
+
+The image build will fail initial when there is no code in the repository until an application is added to the GitHub repo (eks-example). Clone the repo substituting your GitHub user name.
+
+commit changes to your repo to start the image build pipeline.
+
+```bash
+git add .
+git commit -am "Initial commit"
+git push 
+```
+
+See status along with links to the change and build details in the [CodePipeline console] (https://console.aws.amazon.com/codesuite/codepipeline/pipelines), go to the details page for the specific CodePipeline.
+
+Click on the “details” link in the build/deploy stage, to see the output from the CodeBuild process.
+
+To verify the image is built, go to the [Amazon ECR console](https://console.aws.amazon.com/ecr/repositories) and look for your eks-example image repository.
+

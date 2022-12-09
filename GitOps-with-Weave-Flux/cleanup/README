@@ -1,0 +1,5 @@
+## CLEANUP
+
+First, delete all images from the Amazon ECR Repository.
+
+Next, go to the CloudFormation Console and delete the stack used to deploy the image build CodePipeline

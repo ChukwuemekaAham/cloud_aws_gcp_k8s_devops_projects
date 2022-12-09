@@ -1,0 +1,23 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo "Starting docker daemon..."
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+      - echo "Logging into Amazon ECR..."
+      - $(aws ecr get-login --no-include-email --region ${AWS_DEFAULT_REGION})
+      - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build --tag $REPOSITORY_URI:$TAG .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo "Pushing Docker image to ECR"
+      - docker push "${REPOSITORY_URI}:${TAG}"
+      - printf '{"Tag":"%s","RepositoryUri":"%s"}' $TAG $REPOSITORY_URI $PROJECT_NAME $ARTIFACT_BUCKET > build.json
