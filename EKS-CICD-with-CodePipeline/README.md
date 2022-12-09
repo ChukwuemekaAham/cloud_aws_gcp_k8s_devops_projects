@@ -2,7 +2,7 @@
 
 [Continuous integration (CI)](https://aws.amazon.com/devops/continuous-integration/) and [continuous delivery (CD)](https://aws.amazon.com/devops/continuous-delivery/) are essential for deft organizations. Teams are more productive when they can make discrete changes frequently, release those changes programmatically and deliver updates without disruption.
 
-In this demo project, I buildt a CI/CD pipeline using [AWS CodePipeline](https://aws.amazon.com/codepipeline/). The CI/CD pipeline deployed a sample Kubernetes service. you can make a change to the GitHub repository and observe the automated delivery of this change to the cluster.
+In this project, I built a CI/CD pipeline using [AWS CodePipeline](https://aws.amazon.com/codepipeline/). The CI/CD pipeline deployed a sample Kubernetes service. you can make a change to the GitHub repository and observe the automated delivery of this change to the cluster.
 
 ## CREATE IAM ROLE
 To use AWS CodeBuild to deploy the sample Kubernetes service in an AWS CodePipeline, it requires an AWS Identity and Access Management (IAM) role capable of interacting with the EKS cluster.
