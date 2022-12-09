@@ -4,31 +4,9 @@ create the AWS CodePipeline using AWS CloudFormation. This pipeline will be used
 
 Each EKS deployment/service should have its own CodePipeline and be located in an isolated source repository.
 
-Template URL
-
-https://s3.us-east-1.amazonaws.com/cf-templates-wn2ugxac5xlg-us-east-1/2022-12-02T175332.634Z589-weave_flux_pipeline.cfn.yml
-
-Stack description
-CFN Template to deploy CodePipeline to build Docker Image and push to ECR
-
-arn:aws:iam::559379197057:role/eks-weaveflux-CodeBuildServiceRole
-arn:aws:iam::559379197057:role/eks-weaveflux-CodePipelineServiceRole
-
-
-After the console is open, enter your GitHub username, personal access token (created in previous step) and then click the “Create stack” button located at the bottom of the page.
-
-
-<br>
-
-![img](cloudformation_stack.png)
-
+## Deploy the template; weave_flux_pipeline.cfn.yml 
 
 Wait for the status to change from “CREATE_IN_PROGRESS” to CREATE_COMPLETE before moving on to the next step.
-
-<br>
-
-![img](cloudformation_stack_creating.png)
-
 
 Open CodePipeline in the Management Console https://console.aws.amazon.com/codesuite/codepipeline/pipelines. You will see a CodePipeline that starts with image-codepipeline. Click this link to view the details.
 
