@@ -1,0 +1,12 @@
+### GITHUB SETUP
+
+2 GitHub repositories were created. One used for a sample application that will trigger a Docker image build and another used to hold Kubernetes manifests that Weave Flux deploys into the cluster. Note this is a pull based method compared to other continuous deployment tools that push to Kubernetes.
+
+Create the sample application repository by clicking [here](https://github.com/new).
+ 
+Create personal access token at the [New personal access page](https://github.com/settings/tokens/new) in GitHub
+
+
+The access token can be stored securely and reused. so this step is only required during the first run or when you need to generate new keys.
+
+Once Weave Flux is provisioned we need to revisit GitHub one more time to enable Weave to control repositories. 
