@@ -8,8 +8,6 @@ Observability : developers can quickly find if the application state is in sync 
 
 Operation : Argo CD UI visualizes the entire application resource hierarchy, not just top-level resources defined in the Git repo. For example, developers can see ReplicaSets and Pods produced by the Deployment defined in Git. From the UI, you can quickly see Pod logs and the corresponding Kubernetes events. This turns Argo CD into very powerful multi-cluster dashboard.
 
-TODO: Add _ to helpers.tpl in ecsdemo
-
 ![img](argocd_architecture.png)
 
 
