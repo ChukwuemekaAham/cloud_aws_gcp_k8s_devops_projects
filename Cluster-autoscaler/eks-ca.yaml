@@ -1,0 +1,55 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: demo-ca-cluster
+  region: us-west-2
+  version: "1.20"
+availabilityZones:
+- us-west-2a
+- us-west-2b
+managedNodeGroups:
+- name: managed-nodes
+  labels:
+    role: managed-nodes
+  instanceType: t3.medium
+  minSize: 1
+  maxSize: 10
+  desiredCapacity: 1
+  volumeSize: 20
+nodeGroups:
+- name: unmanaged-nodes
+  labels:
+    role: unmanaged-nodes
+  instanceType: t3.medium
+  minSize: 1
+  maxSize: 10
+  desiredCapacity: 1
+  volumeSize: 20
+
+
+# ---
+# apiVersion: eksctl.io/v1alpha5
+# kind: ClusterConfig
+
+# metadata:
+#   name: eks-eksctl-demo
+#   region: us-west-2
+#   version: "1.21"
+ 
+# # availabilityZones: ["${AZS[0]}", "${AZS[1]}", "${AZS[2]}"]
+
+# managedNodeGroups:
+# - name: nodegroup
+#   desiredCapacity: 3
+#   instanceType: t3.small
+#   ssh:
+#     enableSsm: true
+
+# # To enable all of the control plane logs, uncomment below:
+# # cloudWatch:
+# #  clusterLogging:
+# #    enableTypes: ["*"]
+
+# secretsEncryption:
+#   keyARN: arn:aws:kms:us-west-2:263022081217:key/300c3794-494d-47e9-88b6-11d3ce6f49be
