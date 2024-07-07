@@ -15,10 +15,10 @@ aws s3 mb s3://eks-${ACCOUNT_ID}-codepipeline-artifacts
 
 # cd ~/environment
 
-aws iam create-role --role-name eks-weaveflux-CodePipelineServiceRole --assume-role-policy-document file://cpAssumeRolePolicyDocument.json 
+aws iam create-role --role-name eks-argocd-CodePipelineServiceRole --assume-role-policy-document file://cpAssumeRolePolicyDocument.json 
 
-aws iam put-role-policy --role-name eks-weaveflux-CodePipelineServiceRole --policy-name codepipeline-access --policy-document file://cpPolicyDocument.json
+aws iam put-role-policy --role-name eks-argocd-CodePipelineServiceRole --policy-name codepipeline-access --policy-document file://cpPolicyDocument.json
 
-aws iam create-role --role-name eks-weaveflux-CodeBuildServiceRole --assume-role-policy-document file://cbAssumeRolePolicyDocument.json 
+aws iam create-role --role-name eks-argocd-CodeBuildServiceRole --assume-role-policy-document file://cbAssumeRolePolicyDocument.json 
 
-aws iam put-role-policy --role-name eks-weaveflux-CodeBuildServiceRole --policy-name codebuild-access --policy-document file://cbPolicyDocument.json
+aws iam put-role-policy --role-name eks-argocd-CodeBuildServiceRole --policy-name codebuild-access --policy-document file://cbPolicyDocument.json
