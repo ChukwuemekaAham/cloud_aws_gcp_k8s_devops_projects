@@ -1,10 +1,10 @@
 ### CREATE IMAGE WITH CODEPIPELINE
 
-create the AWS CodePipeline using AWS CloudFormation. This pipeline will be used to build a Docker image from the GitHub source repo (eks-example) but this does not deploy the image. Weave Flux will.
+create the AWS CodePipeline using AWS CloudFormation. This pipeline will be used to build a Docker image from the GitHub source repo (eks-example) but this does not deploy the image. ArgoCD will.
 
 Each EKS deployment/service should have its own CodePipeline and be located in an isolated source repository.
 
-## Deploy the template; weave_flux_pipeline.cfn.yml 
+## Deploy the template; argocd_pipeline.cfn.yml 
 
 Wait for the status to change from “CREATE_IN_PROGRESS” to CREATE_COMPLETE before moving on to the next step.
 
